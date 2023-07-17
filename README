@@ -1,4 +1,4 @@
-# File Store Service
+#File Store Service
 
 The File Store Service is a simple HTTP server and command-line client that allows you to store, manage, and interact with plain-text files. The server is built using Flask, and the client is implemented in Python. 
 Text files have been provided to test where text1.txt and same_text1.txt have same content, to check if they can copy content without sending to server.
