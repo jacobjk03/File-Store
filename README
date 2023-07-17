@@ -1,0 +1,95 @@
+# File Store Service
+
+The File Store Service is a simple HTTP server and command-line client that allows you to store, manage, and interact with plain-text files. The server is built using Flask, and the client is implemented in Python. 
+Text files have been provided to test where text1.txt and same_text1.txt have same content, to check if they can copy content without sending to server.
+
+## Features
+
+- Add files to the store
+- List files in the store
+- Remove files from the store
+- Update file contents in the store
+- Word count of all files in the store
+- Retrieve most frequent words in the files
+
+## Prerequisites
+
+- Python 3.x installed on your system
+- Pip package manager
+- Docker (optional, for running the application in containers)
+
+## Installation
+
+1. Clone the repository:
+
+
+2. Install the required dependencies:
+pip install -r requirements.txt
+
+
+## Usage
+
+1. Start the server:
+python app.py
+
+This will start the Flask server on `http://localhost:5000`.
+
+2. Use the help command for any extra information:
+python client.py --help
+
+
+This will display the available commands and options for the CLI client.
+
+3. Examples of CLI commands:
+- Add files to the store:
+  ```
+  python client.py add file1.txt file2.txt
+  ```
+
+- List files in the store:
+  ```
+  python client.py ls
+  ```
+
+- Remove a file from the store:
+  ```
+  python client.py rm file.txt
+  ```
+
+- Update the contents of a file in the store:
+  ```
+  python client.py update file.txt
+  ```
+
+- Get the word count of all files in the store:
+  ```
+  python client.py wc
+  ```
+
+- Retrieve the most frequent words:
+  ```
+  python client.py freq-words --limit 10 --order dsc
+  ```
+
+4. Access the server API directly:
+- Endpoint: `http://localhost:5000`
+- Available API routes:
+  - `POST /add` - Add files to the store
+  - `GET /ls` - List files in the store
+  - `POST /rm/<filename>` - Remove a file from the store
+  - `POST /update/<filename>` - Update the contents of a file in the store
+  - `GET /wc` - Get the word count of all files in the store
+  - `GET /freq-words` - Retrieve the most frequent words
+
+## Docker
+
+You can also run the File Store Service using Docker. If you have Docker installed, follow these steps:
+
+1. Build the Docker image:
+docker build -t file-store-service .
+
+2. Run the Docker container:
+docker run -p 5000:5000 file-store-service
+
+This will start the Flask server inside a Docker container.
+
